@@ -20,7 +20,11 @@ const ProductListing = () => {
   return products.length ? (
     <>
       {products.map((product: Product) => (
-        <ListingItem key={product.product_id} product={product} />
+        <ListingItem
+          key={product.product_id}
+          product={product}
+          setProducts={setProducts}
+        />
       ))}
     </>
   ) : (
