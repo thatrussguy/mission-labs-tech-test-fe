@@ -1,9 +1,7 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Product } from "../types/product";
 import ListingItem from "./ListingItem";
-
-const { REACT_APP_API_URL = "" } = process.env;
+import { fetchProducts } from "../queries/products";
 
 const ProductListing = () => {
   const [products, setProducts] = useState([]);
@@ -12,7 +10,7 @@ const ProductListing = () => {
     const fetchData = async () => {
       const {
         data: { products }
-      } = await axios(REACT_APP_API_URL);
+      } = await fetchProducts();
       setProducts(products);
     };
 
