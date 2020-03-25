@@ -3,6 +3,7 @@ import { Product } from "../types/product";
 import ListingItem from "./ListingItem";
 import { fetchProducts } from "../queries/products";
 import CreateForm from "./CreateForm";
+import "./ProductListing.css";
 
 const ProductListing = () => {
   const [products, setProducts] = useState([]);

@@ -1,6 +1,5 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import { Product } from "../types/product";
-import "./ListingItem.css";
 import { deleteProductById } from "../queries/products";
 import EditForm from "./EditForm";
 

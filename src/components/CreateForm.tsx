@@ -12,7 +12,7 @@ const CreateForm = ({
       name,
       category,
       sizes,
-      price
+      price: Number(price)
     };
     setShowForm(false);
     createProduct(newProduct).then(({ data }) => {
@@ -25,34 +25,38 @@ const CreateForm = ({
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [sizes, setSizes] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("");
   return (
     <>
       <button onClick={() => setShowForm(true)}>Add Product?</button>
       {showForm && (
-        <div>
+        <div className="form">
           <input
             onChange={({ target: { value } }) => {
               setName(value);
             }}
+            placeholder="Name"
             value={name}
           ></input>
           <input
             onChange={({ target: { value } }) => {
               setCategory(value);
             }}
+            placeholder="Category"
             value={category}
           ></input>
           <input
             onChange={({ target: { value } }) => {
               setSizes(value);
             }}
+            placeholder="Sizes"
             value={sizes}
           ></input>
           <input
             onChange={({ target: { value } }) => {
-              setPrice(Number(value));
+              setPrice(value);
             }}
+            placeholder="Price"
             value={price}
           ></input>
           <button onClick={createNewProduct}>Save</button>

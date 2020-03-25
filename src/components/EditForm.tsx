@@ -41,24 +41,28 @@ const EditForm = ({
         onChange={({ target: { value } }) => {
           setUpdatedName(value);
         }}
+        placeholder="Name"
         value={updatedName}
       ></input>
       <input
         onChange={({ target: { value } }) => {
           setUpdatedCategory(value);
         }}
+        placeholder="Category"
         value={updatedCategory}
       ></input>
       <input
         onChange={({ target: { value } }) => {
           setUpdatedSizes(value);
         }}
+        placeholder="Sizes"
         value={updatedSizes}
       ></input>
       <input
         onChange={({ target: { value } }) => {
           setUpdatedPrice(Number(value));
         }}
+        placeholder="Price"
         value={updatedPrice}
       ></input>
       <button onClick={updateProduct}>Save</button>
