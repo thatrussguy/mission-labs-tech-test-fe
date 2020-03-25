@@ -3,8 +3,11 @@ import { Product } from "../types/product";
 
 const { REACT_APP_API_URL = "", REACT_APP_AUTH_KEY } = process.env;
 
-const fetchProducts = async () => {
-  return await axios(REACT_APP_API_URL);
+const fetchProducts = async (queryParams: {
+  priceFrom: string;
+  priceTo: string;
+}) => {
+  return await axios(REACT_APP_API_URL, { params: queryParams });
 };
 
 const deleteProductById = async (product_id: number) => {
