@@ -13,7 +13,7 @@ const deleteProductById = async (product_id: number) => {
   });
 };
 
-const updateProductById = async (updatedProduct: Product) => {
+const updateProductById = async (updatedProduct: Partial<Product>) => {
   return await axios.patch(
     `${REACT_APP_API_URL}/${updatedProduct.product_id}`,
     updatedProduct,
@@ -23,4 +23,10 @@ const updateProductById = async (updatedProduct: Product) => {
   );
 };
 
-export { fetchProducts, deleteProductById, updateProductById };
+const createProduct = async (newProduct: Partial<Product>) => {
+  return await axios.post(REACT_APP_API_URL, newProduct, {
+    headers: { "X-Token": REACT_APP_AUTH_KEY }
+  });
+};
+
+export { fetchProducts, deleteProductById, updateProductById, createProduct };

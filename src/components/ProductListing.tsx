@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Product } from "../types/product";
 import ListingItem from "./ListingItem";
 import { fetchProducts } from "../queries/products";
+import CreateForm from "./CreateForm";
 
 const ProductListing = () => {
   const [products, setProducts] = useState([]);
@@ -19,6 +20,7 @@ const ProductListing = () => {
 
   return products.length ? (
     <>
+      <CreateForm setProducts={setProducts} />
       {products
         .sort((a, b) => a["product_id"] - b["product_id"])
         .map((product: Product) => (
