@@ -19,13 +19,15 @@ const ProductListing = () => {
 
   return products.length ? (
     <>
-      {products.map((product: Product) => (
-        <ListingItem
-          key={product.product_id}
-          product={product}
-          setProducts={setProducts}
-        />
-      ))}
+      {products
+        .sort((a, b) => a["product_id"] - b["product_id"])
+        .map((product: Product) => (
+          <ListingItem
+            key={product.product_id}
+            product={product}
+            setProducts={setProducts}
+          />
+        ))}
     </>
   ) : (
     <p>Loading...</p>
